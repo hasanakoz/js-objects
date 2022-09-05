@@ -41,3 +41,49 @@ const kisi2 = new Personel("1654", "Canan", 20000);
 console.log(kisi1);
 console.log(kisi2.perAd);
 console.log(kisi2["perId"]);
+
+//3- object literal method
+
+const employee = {
+  name: "Can",
+  surname: "Canan",
+  age: 33,
+  job: "developer",
+  languages: ["c++", "java", "javascript", "python", "go"],
+  salary: 140000,
+};
+
+console.log(employee.job);
+employee["languages"].forEach((l) => console.log(l));
+employee.birth = "1990";
+console.log(employee);
+employee["email"] = "can@gmail.com";
+employee["birth"] = "1991";
+employee["salary"] *= 1.1;
+
+//object copy
+
+const person = employee; //shallow copying
+console.log(person);
+person.birth = 2000;
+console.log(person.birth);
+console.log(employee.birth); // the source object of the copy also changed..
+
+let deepCopyofEmployee = JSON.parse(JSON.stringify(employee)); //deep copying
+console.log(deepCopyofEmployee);
+deepCopyofEmployee.birth = 2022; //only the copy changed thanks to deep copying.
+
+//*********OBJECT METHODS******** */
+const personal = {
+  name: "Can",
+  surname: "Canan",
+  birth: 1993,
+  job: "developer",
+  drivingLicence: true,
+  salary: 140000,
+  calculateAge: function () {
+    return new Date().getFullYear() - this.birth;
+  },
+};
+
+console.log(personal.calculateAge());
