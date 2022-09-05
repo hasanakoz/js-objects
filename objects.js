@@ -84,6 +84,80 @@ const personal = {
   calculateAge: function () {
     return new Date().getFullYear() - this.birth;
   },
+  summary: function () {
+    return `${this.name} is ${this.calculateAge()} years old`;
+  },
 };
 
 console.log(personal.calculateAge());
+console.log(personal.summary());
+
+//! NOT: arrow fonksiyonlari ozellikle callback fonksiyonu olarak
+//! kullanilmak ve bu fonksiyonlarda this keyword kullanim
+//! gereksinimini kaldirmak icin gelistirilmistir.
+//! Lexical context'e sahiptirler.Dolayisiyla, bir obje fonksiyonu
+//! olarak kullanilirsa, this kelimesi global scope'u (window nesnesini)
+//! gösterir. Bunu engellemek için object fonksiyonlarini tanimlarken
+//! diger (func. expression veya declaration) yontemlerini kullanabilir.
+
+//*******************OBJECT ITERATION ****/
+
+const people = {
+  person1: {
+    name: "Can",
+    surname: "canan",
+    birth: 1990,
+    job: "developer",
+    salary: 140000,
+    drivingLicence: true,
+  },
+  person2: {
+    name: "john",
+    surname: "sweet",
+    birth: 1990,
+    job: "tester",
+    salary: 130000,
+    drivingLicence: false,
+  },
+  person3: {
+    name: "Steve",
+    surname: "Jose",
+    birth: 1980,
+    job: "QA",
+    salary: 135000,
+    drivingLicence: true,
+  },
+};
+
+console.log(people);
+console.log("salary of p2: ", people.person2.salary);
+
+//! FOR - IN
+//* for (key in object) {
+//*   // code block to be executed
+//* }
+
+for (let person in people) {
+  console.log(person);
+  console.log(people[person]);
+}
+
+//! FOR -OF
+
+for (let v of Object.values(people)) {
+  console.log(v.salary);
+}
+
+for (let [key, value] of Object.entries(people)) {
+  console.log(`${key} - ${value.salary}`);
+}
+
+//!WITH ARRAY METHODS
+
+Object.keys(people).forEach((p) => console.log(p));
+
+Object.values(people).forEach((v) => console.log(v.surname));
+
+Object.values(people)
+  .filter((p) => p.job === "developer")
+  .forEach((p) => console.log(p.birth));
