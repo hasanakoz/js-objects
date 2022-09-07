@@ -194,8 +194,33 @@ console.log(ages);
 //* bunu fullName key'i olarak saklayan, ayni zamanda age degerlerini 5
 //* arttirarak age key'ine saklayan ve olusan diziyi donduren kodu yazınız.
 
-const teamFullName = team.map((p) => ({
-  fullName: p.name.toUpperCase() + " " + p.surname.toUpperCase(),
-  age: p.age + 5,
-}));
-console.log(teamFullName);
+// const teamFullName = team.map((p) => ({
+//   fullName: p.name.toUpperCase() + " " + p.surname.toUpperCase(),
+//   age: p.age + 5,
+// }));
+// console.log(teamFullName);
+
+// const teamFullName = team.map((p) => {
+//   return {
+//     fullName: p.name.toUpperCase() + " " + p.surname.toUpperCase(),
+//     age: p.age + 5,
+//   };
+// });
+// console.log(teamFullName);
+
+//?yaşları 22 den küçük eşit olanların isimlerini döndür
+
+// team.filter((p) => p.age <= 22).forEach((p) => console.log(p.name));
+
+// const teamUnder22 = team.filter((p) => p.age <= 22);
+// console.log(teamUnder22);
+
+//?yaşları 22 den küçük eşit olanların isimlerini diziye at.
+// const teamUnder22 = team.filter((p) => p.age <= 22).map((p) => p.name);
+// console.log(teamUnder22);
+
+//?yaş ortalamasını hesaplama
+// const avgAges =
+//   team.reduce((sum, person) => (sum += person.age), 0) / team.length;
+
+console.log(avgAges);
