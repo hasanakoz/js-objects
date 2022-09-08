@@ -102,32 +102,32 @@
 
 // //*******************OBJECT ITERATION ****/
 
-// const people = {
-//   person1: {
-//     name: "Can",
-//     surname: "canan",
-//     birth: 1990,
-//     job: "developer",
-//     salary: 140000,
-//     drivingLicence: true,
-//   },
-//   person2: {
-//     name: "john",
-//     surname: "sweet",
-//     birth: 1990,
-//     job: "tester",
-//     salary: 130000,
-//     drivingLicence: false,
-//   },
-//   person3: {
-//     name: "Steve",
-//     surname: "Jose",
-//     birth: 1980,
-//     job: "QA",
-//     salary: 135000,
-//     drivingLicence: true,
-//   },
-// };
+const people = {
+  person1: {
+    name: "Can",
+    surname: "canan",
+    birth: 1990,
+    job: "developer",
+    salary: 140000,
+    drivingLicence: true,
+  },
+  person2: {
+    name: "john",
+    surname: "sweet",
+    birth: 1990,
+    job: "tester",
+    salary: 130000,
+    drivingLicence: false,
+  },
+  person3: {
+    name: "Steve",
+    surname: "Jose",
+    birth: 1980,
+    job: "QA",
+    salary: 135000,
+    drivingLicence: true,
+  },
+};
 
 // console.log(people);
 // console.log("salary of p2: ", people.person2.salary);
@@ -165,30 +165,30 @@
 //***************************************** */
 // JSON --- Javascript Object Notation---
 //***************************************** */
-const team = [
-  {
-    name: "josh",
-    surname: "Adams",
-    job: "developer",
-    age: 30,
-  },
-  {
-    name: "mary",
-    surname: "bary",
-    job: "tester",
-    age: 22,
-  },
-  {
-    name: "hazel",
-    surname: "nut",
-    job: "developer",
-    age: 20,
-  },
-];
+// const team = [
+//   {
+//     name: "josh",
+//     surname: "Adams",
+//     job: "developer",
+//     age: 30,
+//   },
+//   {
+//     name: "mary",
+//     surname: "bary",
+//     job: "tester",
+//     age: 22,
+//   },
+//   {
+//     name: "hazel",
+//     surname: "nut",
+//     job: "developer",
+//     age: 20,
+//   },
+// ];
 
-team.forEach((item) => console.log(item.job));
-ages = team.map((item) => item.age + 1);
-console.log(ages);
+// team.forEach((item) => console.log(item.job));
+// ages = team.map((item) => item.age + 1);
+// console.log(ages);
 
 //* Ornek3: name ve surname'leri birlestirip buyuk harfe ceviren ve
 //* bunu fullName key'i olarak saklayan, ayni zamanda age degerlerini 5
@@ -223,4 +223,191 @@ console.log(ages);
 // const avgAges =
 //   team.reduce((sum, person) => (sum += person.age), 0) / team.length;
 
-console.log(avgAges);
+//
+
+//*************************************** */
+//-----DESTRUCTURING OBJECT---------------------
+//***************************************** */
+
+// const car = {
+//   name: "BMW",
+//   model: 1990,
+//   engine: 1.6,
+//   colors: ["blue", "purple"],
+// };
+
+// const { name, colors, model, engine } = car;
+// console.log(name, model, colors, engine);
+
+// const cars = {
+//   car1: {
+//     name: "BMW",
+//     model: 1990,
+//     engine: 1.6,
+//   },
+
+//   car2: {
+//     name: "Mercedes",
+//     model: 2022,
+//     engine: 2.0,
+//   },
+// };
+
+// const { car1, car2 } = cars;
+// console.log(car1);
+
+// const { name: c1Name, model: c1model } = car1;
+// const { name: c2Name, model: c2Model } = car2;
+
+// console.log(c1Name, c2Name);
+
+// const team = [
+//   {
+//     name: "Josh",
+//     surname: "Barry",
+//     job: "developer",
+//     age: 30,
+//   },
+//   {
+//     name: "Josh",
+//     surname: "Barry",
+//     job: "tester",
+//     age: 45,
+//   },
+//   {
+//     name: "Hazel",
+//     surname: "Nut",
+//     job: "team lead",
+//     age: 40,
+//   },
+// ];
+
+// team.forEach((p) => {
+//   console.log("************");
+//   console.log(p.name);
+//   console.log(p.surname);
+//   console.log(p.job);
+//   console.log(p.age);
+// });
+
+// team.forEach((p) => {
+//   const { name, surname, job, age } = p;
+//   console.log("************");
+//   console.log(name);
+//   console.log(surname);
+//   console.log(job);
+//   console.log(age);
+// });
+
+// const getInfo = () => {
+//   return {
+//     id: 1,
+//     productName: "Iphone",
+//     price: 30000,
+//   };
+// };
+
+// console.log(getInfo());
+// const { productName, price } = getInfo();
+// console.log(productName, price);
+
+//*************************************** */
+//-----DESTRUCTURING ARRAY---------------------
+//***************************************** */
+
+// const names = ["Ahmet", "Mehmet", "Ismet", "Saffet"];
+// const [p1, p2, , p4] = names;
+// console.log(p1, p2, p4);
+
+//*************************************** */
+//-----REST ... ---------------------
+//***************************************** */
+
+//? REST operatoru kullanici tarafindan girilen degerleri dizi
+//? icerisine konumlandirir. Cesitli kullanim alanlari vardir.
+
+//! 1- Bir dizi veya object'deki bazi degerlerden geri kalanlarini
+//!    ayri dizi yada objelere kopyalanmasini saglayabilir.
+
+//* REST: (Arrays)
+// const vehicles = ["anadol", "reno", "bmw", "mercedes", "ferrari"];
+
+// const [anadol, reno, ...restVehicles] = vehicles;
+// console.log(reno, anadol);
+// console.log(restVehicles);
+
+// const personel = {
+//   pname: "john",
+//   surname: "smith",
+//   job: "developer",
+//   age: 30,
+// };
+
+// const { pname, job, ...ageSurname } = personel;
+// console.log(pname, job, ageSurname);
+
+// //! bir fonksiyonun argümanlarını diziye çevirmek
+
+// function sum(x, y) {
+//   return x + y;
+// }
+// console.log(sum(1, 2, 3, 4, 5, 6)); //3
+
+// const sumAll = (...numbers) => {
+//   return numbers.reduce((x, y) => x + y, 0);
+// };
+
+// console.log(sumAll(1, 2, 3, 4, 5));
+
+// const showName = (name, surname, ...titles) => {
+//   const summary = `${name} ${surname} is a ${titles.join(" and ")}`;
+//   console.log(summary);
+// };
+
+// showName("noah", "adams", "developer", "instr", "prof.", "dad");
+
+//**************************************** */
+//-----------------SPREAD---------------
+//**************************************** */
+
+// const flyingVehicles = ["aircraft", "helicopter", "quadcopter"];
+// const automobiles = ["truck", "bus", "car"];
+
+// const allVehicles = [...flyingVehicles, ...automobiles]; //concat
+// console.log(allVehicles);
+
+// const citrus = ["orange", "lime", "lemon"];
+// const fruits = ["apple", ...citrus, "banana", "cherry"];
+// console.log(fruits); //concat in
+
+// //string spread
+
+// let str = "Hello FS12";
+// console.log([...str]);
+
+// //MAX()
+// console.log(Math.max(1, 2, 6, 8, 9, 4)); //9
+// const nums = [1, 2, 6, 8, 9, 4];
+// console.log(Math.max(...nums)); //9 -diziyi açmak için ... kullandık
+
+// //array copy
+
+// const myNumbers = [1, 2, 3];
+// const herNumbers = [-1, ...myNumbers, 7]; // diziyi açtık ... ile
+// const hisNumbers = [...myNumbers];
+// console.log(herNumbers);
+// hisNumbers.push(100); //copyden myNumbers etkilenmedi.
+// console.log(hisNumbers, myNumbers);
+
+// //object copy
+
+// const myObj = { a: 1, b: 2, c: 3 };
+// const herObj = { a: 2, z: 4, k: 3 };
+// const copyObj = { ...myObj };
+// console.log(copyObj);
+
+// copyObj.c = 33;
+// console.log(myObj, copyObj); //copyden orijinal obje etkilenmedi.
+
+// const combinedObj = { ...myObj, ...herObj };
+// console.log(combinedObj);
